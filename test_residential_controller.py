@@ -17,6 +17,7 @@ def scenario(column,requestedFloor, direction, destination):
         pickedUpUser = True 
     
     selectedElevator.requestFloor(destination)
+    moveAllElevators(tempColumn)
 
     for i in range(len(tempColumn.elevatorsList)):
         if tempColumn.elevatorsList[i].ID == selectedElevator.ID:
@@ -31,6 +32,13 @@ def scenario(column,requestedFloor, direction, destination):
     return results
 
 column1 = Column(1, 10, 2)
+
+
+def moveAllElevators(column):
+    for elevator in column.elevatorsList:
+        while len(elevator.floorRequestList) != 0:
+            elevator.move()
+
 def test_Instantiates_a_Column_with_valid_attributes():
     
     assert type(column1) is Column
