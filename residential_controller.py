@@ -4,8 +4,8 @@ class Column:
         self.status = _status
         self.amountOfFloors = _amountOfFloors
         self.amountOfElevators = _amountOfElevators
-        self.elevatorsList = []
-        self.callButtonsList = []
+        self.elevatorList = []
+        self.callButtonList = []
         self.createElevators()
         self.createCallButtons()
 
@@ -15,10 +15,10 @@ class Column:
         for i in range(self.amountOfFloors):
             if buttonFloor < self.amountOfFloors:
                 callButton = CallButton(callButtonID, buttonFloor, 'up')
-                self.callButtonsList.append(callButton)
+                self.callButtonList.append(callButton)
             if buttonFloor > 1:
                 callButton = CallButton(callButtonID, buttonFloor, 'down')
-                self.callButtonsList.append(callButton)
+                self.callButtonList.append(callButton)
             callButtonID += 1
             buttonFloor += 1
 
@@ -26,7 +26,7 @@ class Column:
         elevatorID = 1
         for i in range(self.amountOfElevators):
             elevator = Elevator(elevatorID, self.amountOfFloors, 'idle', 1)
-            self.elevatorsList.append(elevator)
+            self.elevatorList.append(elevator)
             elevatorID += 1
 
     def requestElevator(self, requestedFloor, direction):
@@ -42,7 +42,7 @@ class Column:
             'score' : 5,
             'referenceGap' : 10000000
         }
-        for elevator in self.elevatorsList:
+        for elevator in self.elevatorList:
             score = 4
             if requestedFloor == elevator.currentFloor and elevator.status == 'stop' and requestedDirection == elevator.direction:
                 score = 1
@@ -65,7 +65,7 @@ class Elevator:
         self.overweightAlarm = False
         self.overweight = False
         self.door = Door(self.ID)
-        self.floorRequestButtonsList = []
+        self.floorRequestButtonList = []
         self.floorRequestList = []
         self.createFloorRequestButtons()
 
@@ -73,7 +73,7 @@ class Elevator:
         buttonFloor = 1
         floorRequestButtonID = 1
         for i in range(self.amountOfFloors):
-            self.floorRequestButtonsList.append(FloorRequestButton(floorRequestButtonID, buttonFloor))
+            self.floorRequestButtonList.append(FloorRequestButton(floorRequestButtonID, buttonFloor))
             buttonFloor += 1
             floorRequestButtonID += 1
 
