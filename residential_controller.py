@@ -136,23 +136,23 @@ class Elevator:
 
 
 class CallButton:
-    def __init__(self, _id, _floor, _direction,):
+    def __init__(self, _id, _floor, _direction, _status='OFF'):
         self.ID = _id
         self.floor = _floor
         self.direction = _direction
-        self.status = 'OFF'
+        self.status = _status
 
 class FloorRequestButton:
-    def __init__(self, _id, _floor):
+    def __init__(self, _id, _floor, _status='OFF'):
         self.ID = _id
         self.floor = _floor
-        self.status = 'OFF'
+        self.status = _status
 
 
 class Door:
-    def __init__(self, _id):
+    def __init__(self, _id, _status='closed'):
         self.ID = _id
-        self.status = 'closed'
+        self.status = _status
         self.obstructed = False
     
 
