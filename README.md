@@ -1,5 +1,15 @@
 # Rocket-Elevators-Python-Controller
-This is the template to use for the python residential controller. You will find the classes that should be used along with some methods described in the requirements. The necessary file to run some tests is also included. 
+
+### Description
+
+This program serve as an elevator controller for application in the residential department, coded in Python
+
+#### Exemple:
+
+On a request call from any floor of the building, the controller will first select the best elevator available.
+Selection is based on the status, direction and distance of each elevator to the target floor.
+Once an elevator have been selected, it is sent to the corresponding floor to pick up the user and move him to the floor of his choice
+
 
 ### Installation
 
@@ -17,18 +27,7 @@ To launch the tests:
 
 `pytest`
 
-With a fully completed project, you should get an output like:
-
-![Screenshot from 2021-06-15 13-13-13](https://user-images.githubusercontent.com/28630658/122095645-a41fa000-cddb-11eb-9322-81a766cce4bb.png)
-
 You can also get more details about each test by adding the `-v` flag: 
 
 `pytest -v` 
 
-which should give something like: 
-
-![Screenshot from 2021-06-15 13-13-33](https://user-images.githubusercontent.com/28630658/122095759-c74a4f80-cddb-11eb-999d-dfe35dbe7d18.png)
-
-The test file can be left in your final project but no scenarios should be present in your code. The grader will run tests similar to the ones provided.
-
-Of course, make sure to edit this Readme file to describe your own project!
